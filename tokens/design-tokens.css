@@ -1,0 +1,244 @@
+/**
+ * LifeStation Design System - CSS Custom Properties
+ * Generated from Figma Dev Mode
+ */
+
+:root {
+  /* Primary Brand Colors */
+  --color-brand-maroon: #b92a71;
+  --color-brand-maroon-category: #eacfdd;
+  --color-brand-maroon-divider: #fec1df;
+
+  /* Success Colors */
+  --color-success-green: #00a63e;
+  --color-success-green-category: #7bf1a8;
+  --color-success-green-divider: #008230;
+  --color-success-green-stroke: #05df72;
+  --color-success-card-green-bg: #dcfce7;
+  --color-success-footer-grey-green: #edf1ef;
+
+  /* Error Colors */
+  --color-error-red: #e7000b;
+  --color-error-warning-orange: #f54900;
+  --color-error-warning-bg: #ffedd4;
+  --color-error-warning-stroke: #ff8904;
+  --color-error-card-red-bg: #ffe2e2;
+  --color-error-card-red-stroke: #ff6467;
+
+  /* Info Colors */
+  --color-info-blue: #0057c2;
+  --color-info-icon-blue: #0284c7;
+  --color-info-icon-bg-blue: #dfeef7;
+  --color-info-blue-chip-action: #006aa1;
+  --color-info-card-blue-bg: #dbeafe;
+  --color-info-card-blue-stroke: #3b82f6;
+  --color-info-icon-container-bg: #cce2ee;
+  --color-info-content-container-bg-lgt-blue: #f8fafc;
+
+  /* Grey Scale */
+  --color-grey-divider: #738ba5;
+  --color-grey-category: #b3bdc7;
+  --color-grey-nav: #415972;
+  --color-grey-footer-light-bg: #eeeeee;
+  --color-grey-text-aa18-3-4: #dddddd;
+  --color-grey-bg-aa18-3-4: #7a7a7a;
+  --color-grey-tip-text: #656565;
+  --color-grey-primary-bg: #415972;
+  --color-grey-container-stroke: #909090;
+  --color-grey-secondary-solid: #d4d4d8;
+  --color-grey-nav-divider: #677a8e;
+
+  /* Base Colors */
+  --color-base-white: #ffffff;
+  --color-base-card-text: #1d1d1d;
+  --color-base-icon-default: #0f0f0f;
+  --color-base-text-default: #1e1e1e;
+  --color-base-black-200: #0c0c0d1a;
+  --color-base-black-100: #0c0c0d0d;
+  --color-base-grid-placeholder-bg: #f1f4f8;
+
+  /* WCAG Compliant Colors */
+  --color-wcag-pattern-diagonal-foreground: #666666;
+  --color-wcag-pattern-crosshatch-foreground: #555555;
+  --color-wcag-visual-text-foreground: #ffffff;
+
+  /* Neutral System Colors */
+  --color-neutral-default: #303030;
+  --color-neutral-on-neutral-tertiary: #434343;
+  --color-neutral-on-neutral-secondary: #303030;
+  --color-neutral-tertiary: #e3e3e3;
+  --color-neutral-tertiary-hover: #cdcdcd;
+  --color-neutral-secondary: #cdcdcd;
+  --color-neutral-disabled: #b3b3b3;
+  --color-neutral-on-disabled: #b3b3b3;
+
+  /* Border Colors */
+  --color-border-default: #d9d9d9;
+  --color-border-neutral: #303030;
+  --color-border-neutral-secondary: #767676;
+  --color-border-neutral-tertiary: #b2b2b2;
+  --color-border-disabled: #b3b3b3;
+  --color-border-brand: #2c2c2c;
+
+  /* Background Colors */
+  --color-background-default: #ffffff;
+  --color-background-brand: #2c2c2c;
+  --color-background-brand-hover: #1e1e1e;
+  --color-background-disabled: #d9d9d9;
+  --color-background-neutral-tertiary: #e3e3e3;
+  --color-background-neutral-secondary: #cdcdcd;
+
+  /* Text Colors */
+  --color-text-default: #1e1e1e;
+  --color-text-neutral: #303030;
+  --color-text-brand: #f5f5f5;
+  --color-text-on-brand: #f5f5f5;
+  --color-text-disabled: #b3b3b3;
+  --color-text-on-neutral-tertiary: #434343;
+  --color-text-on-neutral-secondary: #303030;
+
+  /* UI Element Colors */
+  --color-ui-scroll-handle: #d9d9db;
+  --color-ui-scroll-base: #f2f3f5;
+  --color-ui-input-label-default: #0f0f0f;
+  --color-ui-input-text-unfilled: #5b5b5c;
+
+  /* Typography */
+  --font-family-primary:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-family-mono:
+    "Roboto Mono", "SF Mono", Monaco, Inconsolata, "Fira Code", "Fira Mono",
+    "Droid Sans Mono", "Courier New", monospace;
+
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-strong: 600;
+
+  --line-height-16: 16px;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+  --line-height-32: 32px;
+  --line-height-40: 40px;
+
+  /* Spacing */
+  --space-0: 0px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+
+  /* Border Radius */
+  --border-radius-2: 2px;
+  --border-radius-5: 5px;
+  --border-radius-8: 8px;
+  --border-radius-10: 10px;
+  --border-radius-full: 9999px;
+
+  /* Border Width */
+  --border-width-1: 1px;
+  --border-width-2: 2px;
+  --border-width-3: 3px;
+
+  /* Shadows */
+  --shadow-sm:
+    0px 1px 4px rgba(12, 12, 13, 0.04), 0px 1px 4px rgba(12, 12, 13, 0.1);
+
+  /* Component Specific Tokens */
+  --component-button-height: 52px;
+  --component-button-padding: 12px 20px;
+  --component-button-border-radius: 8px;
+
+  --component-system-message-height: 46px;
+  --component-system-message-padding: 12px 24px;
+
+  --component-input-border-radius: 8px;
+  --component-input-height-default: 60px;
+  --component-input-height-large: 86px;
+}
+
+/* Utility Classes for Common Patterns */
+.text-body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-24);
+}
+
+.text-body-medium {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-24);
+}
+
+.text-body-small {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-20);
+}
+
+.button-base {
+  height: var(--component-button-height);
+  padding: var(--component-button-padding);
+  border-radius: var(--component-button-border-radius);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-24);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+}
+
+.button-primary {
+  background-color: var(--color-success-green);
+  color: var(--color-base-white);
+}
+
+.button-primary:hover {
+  background-color: var(--color-success-green-divider);
+}
+
+.button-secondary {
+  background-color: var(--color-grey-footer-light-bg);
+  color: var(--color-base-card-text);
+  border: var(--border-width-3) solid var(--color-base-card-text);
+}
+
+.button-disabled {
+  background-color: var(--color-grey-bg-aa18-3-4);
+  color: var(--color-grey-text-aa18-3-4);
+  cursor: not-allowed;
+}
+
+.system-message {
+  height: var(--component-system-message-height);
+  padding: var(--component-system-message-padding);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-24);
+}
+
+.system-message-warning {
+  background-color: var(--color-error-warning-bg);
+  color: var(--color-base-card-text);
+}
+
+.system-message-info {
+  background-color: var(--color-info-icon-bg-blue);
+  color: var(--color-base-card-text);
+}

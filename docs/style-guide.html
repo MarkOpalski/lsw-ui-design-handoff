@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System Style Guide</title>
+    <style>
+      /* Design Tokens */
+      :root {
+        /* Colors */
+        --color-primary-50: #f0f9ff;
+        --color-primary-100: #e0f2fe;
+        --color-primary-200: #bae6fd;
+        --color-primary-300: #7dd3fc;
+        --color-primary-400: #38bdf8;
+        --color-primary-500: #0ea5e9;
+        --color-primary-600: #0284c7;
+        --color-primary-700: #0369a1;
+        --color-primary-800: #075985;
+        --color-primary-900: #0c4a6e;
+
+        --color-secondary-50: #f8fafc;
+        --color-secondary-100: #f1f5f9;
+        --color-secondary-200: #e2e8f0;
+        --color-secondary-300: #cbd5e1;
+        --color-secondary-400: #94a3b8;
+        --color-secondary-500: #64748b;
+        --color-secondary-600: #475569;
+        --color-secondary-700: #334155;
+        --color-secondary-800: #1e293b;
+        --color-secondary-900: #0f172a;
+
+        --color-success-50: #f0fdf4;
+        --color-success-100: #dcfce7;
+        --color-success-200: #bbf7d0;
+        --color-success-300: #86efac;
+        --color-success-400: #4ade80;
+        --color-success-500: #22c55e;
+        --color-success-600: #16a34a;
+        --color-success-700: #15803d;
+        --color-success-800: #166534;
+        --color-success-900: #14532d;
+
+        --color-warning-50: #fffbeb;
+        --color-warning-100: #fef3c7;
+        --color-warning-200: #fde68a;
+        --color-warning-300: #fcd34d;
+        --color-warning-400: #fbbf24;
+        --color-warning-500: #f59e0b;
+        --color-warning-600: #d97706;
+        --color-warning-700: #b45309;
+        --color-warning-800: #92400e;
+        --color-warning-900: #78350f;
+
+        --color-error-50: #fef2f2;
+        --color-error-100: #fee2e2;
+        --color-error-200: #fecaca;
+        --color-error-300: #fca5a5;
+        --color-error-400: #f87171;
+        --color-error-500: #ef4444;
+        --color-error-600: #dc2626;
+        --color-error-700: #b91c1c;
+        --color-error-800: #991b1b;
+        --color-error-900: #7f1d1d;
+
+        /* Typography */
+        --font-primary:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        --font-mono:
+          "SF Mono", Monaco, Inconsolata, "Roboto Mono", Consolas,
+          "Courier New", monospace;
+
+        /* Font Sizes */
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 1.875rem;
+        --font-size-4xl: 2.25rem;
+        --font-size-5xl: 3rem;
+        --font-size-6xl: 3.75rem;
+
+        /* Font Weights */
+        --font-weight-light: 300;
+        --font-weight-normal: 400;
+        --font-weight-medium: 500;
+        --font-weight-semibold: 600;
+        --font-weight-bold: 700;
+        --font-weight-extrabold: 800;
+
+        /* Line Heights */
+        --line-height-tight: 1.25;
+        --line-height-snug: 1.375;
+        --line-height-normal: 1.5;
+        --line-height-relaxed: 1.625;
+        --line-height-loose: 2;
+
+        /* Spacing */
+        --spacing-xs: 0.25rem;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --spacing-2xl: 3rem;
+        --spacing-3xl: 4rem;
+        --spacing-4xl: 6rem;
+
+        /* Border Radius */
+        --radius-none: 0;
+        --radius-sm: 0.125rem;
+        --radius-md: 0.25rem;
+        --radius-lg: 0.5rem;
+        --radius-xl: 0.75rem;
+        --radius-full: 9999px;
+
+        /* Shadows */
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg:
+          0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        --shadow-xl:
+          0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-primary);
+        line-height: var(--line-height-normal);
+        color: var(--color-secondary-900);
+        background-color: var(--color-secondary-50);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--spacing-lg);
+      }
+
+      /* Header */
+      .header {
+        background: white;
+        border-bottom: 1px solid var(--color-secondary-200);
+        padding: var(--spacing-lg) 0;
+        margin-bottom: var(--spacing-2xl);
+      }
+
+      .header h1 {
+        font-size: var(--font-size-3xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-secondary-900);
+        margin-bottom: var(--spacing-sm);
+      }
+
+      .header p {
+        color: var(--color-secondary-600);
+        font-size: var(--font-size-lg);
+      }
+
+      /* Navigation */
+      .nav {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+        border-bottom: 1px solid var(--color-secondary-200);
+      }
+
+      .nav-item {
+        padding: var(--spacing-sm) var(--spacing-md);
+        background: none;
+        border: none;
+        color: var(--color-secondary-600);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.2s ease;
+      }
+
+      .nav-item:hover,
+      .nav-item.active {
+        color: var(--color-primary-600);
+        border-bottom-color: var(--color-primary-600);
+      }
+
+      /* Section */
+      .section {
+        display: none;
+        background: white;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        padding: var(--spacing-xl);
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .section.active {
+        display: block;
+      }
+
+      .section h2 {
+        font-size: var(--font-size-2xl);
+        font-weight: var(--font-weight-bold);
+        color: var(--color-secondary-900);
+        margin-bottom: var(--spacing-lg);
+      }
+
+      .section h3 {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-secondary-800);
+        margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+      }
+
+      /* Color Palette */
+      .color-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .color-group {
+        background: var(--color-secondary-50);
+        border-radius: var(--radius-md);
+        padding: var(--spacing-md);
+      }
+
+      .color-group h4 {
+        font-size: var(--font-size-lg);
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-sm);
+        text-transform: capitalize;
+      }
+
+      .color-item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .color-swatch {
+        width: 24px;
+        height: 24px;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--color-secondary-200);
+      }
+
+      .color-info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .color-name {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--color-secondary-700);
+      }
+
+      .color-value {
+        font-size: var(--font-size-xs);
+        font-family: var(--font-mono);
+        color: var(--color-secondary-500);
+      }
+
+      /* Typography Scale */
+      .type-scale {
+        margin-bottom: var(--spacing-xl);
+      }
+
+      .type-example {
+        margin-bottom: var(--spacing-md);
+        padding: var(--spacing-md);
+        border: 1px solid var(--color-secondary-200);
+        border-radius: var(--radius-md);
+      }
+
+      .type-example h5 {
+        font-size: var(--font-size-sm);
+        color: var(--color-secondary-500);
+        margin-bottom: var(--spacing-xs);
+        font-weight: var(--font-weight-normal);
+      }
+
+      /* Component Gallery */
+      .component-group {
+        margin-bottom: var(--spacing-xl);
+        padding: var(--spacing-lg);
+        border: 1px solid var(--color-secondary-200);
+        border-radius: var(--radius-md);
+        background: var(--color-secondary-50);
+      }
+
+      .component-examples {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+        margin-top: var(--spacing-md);
+      }
+
+      /* Button Styles */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: 1px solid transparent;
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        font-family: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        outline: none;
+      }
+
+      .btn:focus {
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      /* Primary Button */
+      .btn-primary {
+        background-color: var(--color-primary-600);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--color-primary-700);
+      }
+
+      .btn-primary:active {
+        background-color: var(--color-primary-800);
+      }
+
+      /* Secondary Button */
+      .btn-secondary {
+        background-color: white;
+        color: var(--color-secondary-700);
+        border-color: var(--color-secondary-300);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--color-secondary-50);
+        border-color: var(--color-secondary-400);
+      }
+
+      /* Success Button */
+      .btn-success {
+        background-color: var(--color-success-600);
+        color: white;
+      }
+
+      .btn-success:hover {
+        background-color: var(--color-success-700);
+      }
+
+      /* Warning Button */
+      .btn-warning {
+        background-color: var(--color-warning-500);
+        color: white;
+      }
+
+      .btn-warning:hover {
+        background-color: var(--color-warning-600);
+      }
+
+      /* Error/Danger Button */
+      .btn-error {
+        background-color: var(--color-error-600);
+        color: white;
+      }
+
+      .btn-error:hover {
+        background-color: var(--color-error-700);
+      }
+
+      /* Button Sizes */
+      .btn-sm {
+        padding: calc(var(--spacing-xs) * 1.5) var(--spacing-sm);
+        font-size: var(--font-size-xs);
+      }
+
+      .btn-lg {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+      }
+
+      /* System Message Styles */
+      .message {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        border-left: 4px solid;
+        margin-bottom: var(--spacing-md);
+        position: relative;
+      }
+
+      .message-icon {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+      }
+
+      .message-content {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .message-title {
+        font-weight: var(--font-weight-semibold);
+        margin-bottom: var(--spacing-xs);
+      }
+
+      .message-text {
+        font-size: var(--font-size-sm);
+        line-height: var(--line-height-relaxed);
+      }
+
+      .message-dismiss {
+        position: absolute;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        background: none;
+        border: none;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.2s ease;
+      }
+
+      .message-dismiss:hover {
+        opacity: 1;
+      }
+
+      /* Message Variants */
+      .message-info {
+        background-color: var(--color-primary-50);
+        border-left-color: var(--color-primary-500);
+        color: var(--color-primary-800);
+      }
+
+      .message-success {
+        background-color: var(--color-success-50);
+        border-left-color: var(--color-success-500);
+        color: var(--color-success-800);
+      }
+
+      .message-warning {
+        background-color: var(--color-warning-50);
+        border-left-color: var(--color-warning-500);
+        color: var(--color-warning-800);
+      }
+
+      .message-error {
+        background-color: var(--color-error-50);
+        border-left-color: var(--color-error-500);
+        color: var(--color-error-800);
+      }
+
+      /* Code Block */
+      .code-block {
+        background: var(--color-secondary-900);
+        color: var(--color-secondary-100);
+        padding: var(--spacing-md);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
+        overflow-x: auto;
+        margin: var(--spacing-md) 0;
+      }
+
+      .code-block pre {
+        margin: 0;
+      }
+
+      /* Spacing Examples */
+      .spacing-demo {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--spacing-md);
+      }
+
+      .spacing-item {
+        text-align: center;
+      }
+
+      .spacing-box {
+        background: var(--color-primary-200);
+        margin: var(--spacing-md) auto;
+        border-radius: var(--radius-sm);
+      }
+
+      .spacing-label {
+        font-size: var(--font-size-sm);
+        color: var(--color-secondary-600);
+        margin-top: var(--spacing-xs);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: var(--spacing-md);
+        }
+
+        .nav {
+          flex-wrap: wrap;
+        }
+
+        .component-examples {
+          flex-direction: column;
+        }
+
+        .color-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container">
+        <h1>Design System Style Guide</h1>
+        <p>
+          A comprehensive reference for developers implementing the design
+          system
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="nav">
+        <button class="nav-item active" data-section="tokens">
+          Design Tokens
+        </button>
+        <button class="nav-item" data-section="typography">Typography</button>
+        <button class="nav-item" data-section="colors">Colors</button>
+        <button class="nav-item" data-section="spacing">Spacing</button>
+        <button class="nav-item" data-section="components">Components</button>
+        <button class="nav-item" data-section="usage">Usage Guidelines</button>
+      </nav>
+
+      <!-- Design Tokens Section -->
+      <section class="section active" id="tokens">
+        <h2>Design Tokens</h2>
+        <p>
+          Design tokens are the visual design atoms of the design system. They
+          store visual design attributes and replace hard-coded values in our
+          codebase.
+        </p>
+
+        <h3>Available Formats</h3>
+        <ul>
+          <li>
+            <strong>CSS Custom Properties:</strong>
+            <code>design-tokens.css</code>
+          </li>
+          <li>
+            <strong>TypeScript Constants:</strong> <code>design-tokens.ts</code>
+          </li>
+          <li>
+            <strong>Design Tokens Community Format:</strong>
+            <code>design-tokens.json</code>
+          </li>
+        </ul>
+
+        <div class="code-block">
+          <pre>
+/* CSS Usage */
+.button {
+  background-color: var(--color-primary-600);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+/* TypeScript Usage */
+import { colors, spacing, borderRadius } from './tokens/design-tokens';
+
+const buttonStyles = {
+  backgroundColor: colors.primary[600],
+  padding: `${spacing.sm} ${spacing.md}`,
+  borderRadius: borderRadius.md
+};
+                </pre
+          >
+        </div>
+      </section>
+
+      <!-- Typography Section -->
+      <section class="section" id="typography">
+        <h2>Typography</h2>
+        <p>
+          Our typography scale provides consistent text sizing and hierarchy
+          across the system.
+        </p>
+
+        <div class="type-scale">
+          <div class="type-example">
+            <h5>6xl (60px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-6xl);
+                font-weight: var(--font-weight-bold);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>5xl (48px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-5xl);
+                font-weight: var(--font-weight-bold);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>4xl (36px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-4xl);
+                font-weight: var(--font-weight-semibold);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>3xl (30px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-3xl);
+                font-weight: var(--font-weight-semibold);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>2xl (24px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-2xl);
+                font-weight: var(--font-weight-medium);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>xl (20px)</h5>
+            <div
+              style="
+                font-size: var(--font-size-xl);
+                font-weight: var(--font-weight-medium);
+              "
+            >
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>lg (18px)</h5>
+            <div style="font-size: var(--font-size-lg)">
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>base (16px)</h5>
+            <div style="font-size: var(--font-size-base)">
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>sm (14px)</h5>
+            <div style="font-size: var(--font-size-sm)">
+              The quick brown fox
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>xs (12px)</h5>
+            <div style="font-size: var(--font-size-xs)">
+              The quick brown fox
+            </div>
+          </div>
+        </div>
+
+        <h3>Font Weights</h3>
+        <div class="type-scale">
+          <div class="type-example">
+            <h5>Light (300)</h5>
+            <div style="font-weight: var(--font-weight-light)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>Normal (400)</h5>
+            <div style="font-weight: var(--font-weight-normal)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>Medium (500)</h5>
+            <div style="font-weight: var(--font-weight-medium)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>Semibold (600)</h5>
+            <div style="font-weight: var(--font-weight-semibold)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>Bold (700)</h5>
+            <div style="font-weight: var(--font-weight-bold)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+          <div class="type-example">
+            <h5>Extrabold (800)</h5>
+            <div style="font-weight: var(--font-weight-extrabold)">
+              The quick brown fox jumps over the lazy dog
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colors Section -->
+      <section class="section" id="colors">
+        <h2>Color Palette</h2>
+        <p>
+          Our color system provides consistent and accessible colors for all
+          interface elements.
+        </p>
+
+        <div class="color-grid">
+          <!-- Primary Colors -->
+          <div class="color-group">
+            <h4>Primary</h4>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-50)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">50</div>
+                <div class="color-value">#F0F9FF</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-100)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">100</div>
+                <div class="color-value">#E0F2FE</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-200)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">200</div>
+                <div class="color-value">#BAE6FD</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-300)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">300</div>
+                <div class="color-value">#7DD3FC</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-400)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">400</div>
+                <div class="color-value">#38BDF8</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-500)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">500</div>
+                <div class="color-value">#0EA5E9</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-600)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">600</div>
+                <div class="color-value">#0284C7</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-700)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">700</div>
+                <div class="color-value">#0369A1</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-800)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">800</div>
+                <div class="color-value">#075985</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-primary-900)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">900</div>
+                <div class="color-value">#0C4A6E</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Success Colors -->
+          <div class="color-group">
+            <h4>Success</h4>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-success-50)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">50</div>
+                <div class="color-value">#F0FDF4</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-success-500)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">500</div>
+                <div class="color-value">#22C55E</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-success-600)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">600</div>
+                <div class="color-value">#16A34A</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-success-900)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">900</div>
+                <div class="color-value">#14532D</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Warning Colors -->
+          <div class="color-group">
+            <h4>Warning</h4>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-warning-50)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">50</div>
+                <div class="color-value">#FFFBEB</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-warning-500)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">500</div>
+                <div class="color-value">#F59E0B</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-warning-600)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">600</div>
+                <div class="color-value">#D97706</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-warning-900)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">900</div>
+                <div class="color-value">#78350F</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error Colors -->
+          <div class="color-group">
+            <h4>Error</h4>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-error-50)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">50</div>
+                <div class="color-value">#FEF2F2</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-error-500)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">500</div>
+                <div class="color-value">#EF4444</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-error-600)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">600</div>
+                <div class="color-value">#DC2626</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-error-900)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">900</div>
+                <div class="color-value">#7F1D1D</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secondary/Gray Colors -->
+          <div class="color-group">
+            <h4>Secondary</h4>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-secondary-50)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">50</div>
+                <div class="color-value">#F8FAFC</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-secondary-200)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">200</div>
+                <div class="color-value">#E2E8F0</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-secondary-500)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">500</div>
+                <div class="color-value">#64748B</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-secondary-700)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">700</div>
+                <div class="color-value">#334155</div>
+              </div>
+            </div>
+            <div class="color-item">
+              <div
+                class="color-swatch"
+                style="background-color: var(--color-secondary-900)"
+              ></div>
+              <div class="color-info">
+                <div class="color-name">900</div>
+                <div class="color-value">#0F172A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Spacing Section -->
+      <section class="section" id="spacing">
+        <h2>Spacing System</h2>
+        <p>
+          Consistent spacing creates visual rhythm and hierarchy throughout the
+          interface.
+        </p>
+
+        <div class="spacing-demo">
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 4px; height: 16px"></div>
+            <div class="spacing-label">xs (4px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 8px; height: 16px"></div>
+            <div class="spacing-label">sm (8px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 16px; height: 16px"></div>
+            <div class="spacing-label">md (16px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 24px; height: 16px"></div>
+            <div class="spacing-label">lg (24px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 32px; height: 16px"></div>
+            <div class="spacing-label">xl (32px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 48px; height: 16px"></div>
+            <div class="spacing-label">2xl (48px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 64px; height: 16px"></div>
+            <div class="spacing-label">3xl (64px)</div>
+          </div>
+          <div class="spacing-item">
+            <div class="spacing-box" style="width: 96px; height: 16px"></div>
+            <div class="spacing-label">4xl (96px)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Components Section -->
+      <section class="section" id="components">
+        <h2>Component Library</h2>
+        <p>
+          Interactive examples of all available components with their various
+          states and variants.
+        </p>
+
+        <!-- Buttons -->
+        <div class="component-group">
+          <h3>Buttons</h3>
+          <p>Primary interaction elements with multiple variants and sizes.</p>
+
+          <h4>Button Variants</h4>
+          <div class="component-examples">
+            <button class="btn btn-primary">Primary</button>
+            <button class="btn btn-secondary">Secondary</button>
+            <button class="btn btn-success">Success</button>
+            <button class="btn btn-warning">Warning</button>
+            <button class="btn btn-error">Error</button>
+          </div>
+
+          <h4>Button Sizes</h4>
+          <div class="component-examples">
+            <button class="btn btn-primary btn-sm">Small</button>
+            <button class="btn btn-primary">Default</button>
+            <button class="btn btn-primary btn-lg">Large</button>
+          </div>
+
+          <div class="code-block">
+            <pre>
+<!-- HTML -->
+&lt;button class="btn btn-primary"&gt;Primary Button&lt;/button&gt;
+&lt;button class="btn btn-secondary btn-lg"&gt;Large Secondary&lt;/button&gt;
+
+/* CSS */
+.btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+}
+                    </pre>
+          </div>
+        </div>
+
+        <!-- System Messages -->
+        <div class="component-group">
+          <h3>System Messages</h3>
+          <p>
+            Contextual feedback messages for user actions and system status.
+          </p>
+
+          <div class="message message-info">
+            <div class="message-icon">ℹ️</div>
+            <div class="message-content">
+              <div class="message-title">Information</div>
+              <div class="message-text">
+                This is an informational message to provide context to the user.
+              </div>
+            </div>
+            <button class="message-dismiss" aria-label="Dismiss">×</button>
+          </div>
+
+          <div class="message message-success">
+            <div class="message-icon">✅</div>
+            <div class="message-content">
+              <div class="message-title">Success</div>
+              <div class="message-text">
+                Your action was completed successfully!
+              </div>
+            </div>
+            <button class="message-dismiss" aria-label="Dismiss">×</button>
+          </div>
+
+          <div class="message message-warning">
+            <div class="message-icon">⚠️</div>
+            <div class="message-content">
+              <div class="message-title">Warning</div>
+              <div class="message-text">
+                Please review your input before proceeding.
+              </div>
+            </div>
+            <button class="message-dismiss" aria-label="Dismiss">×</button>
+          </div>
+
+          <div class="message message-error">
+            <div class="message-icon">❌</div>
+            <div class="message-content">
+              <div class="message-title">Error</div>
+              <div class="message-text">
+                An error occurred while processing your request.
+              </div>
+            </div>
+            <button class="message-dismiss" aria-label="Dismiss">×</button>
+          </div>
+
+          <div class="code-block">
+            <pre>
+&lt;div class="message message-success"&gt;
+  &lt;div class="message-icon"&gt;✅&lt;/div&gt;
+  &lt;div class="message-content"&gt;
+    &lt;div class="message-title"&gt;Success&lt;/div&gt;
+    &lt;div class="message-text"&gt;Your action was completed!&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="message-dismiss" aria-label="Dismiss"&gt;×&lt;/button&gt;
+&lt;/div&gt;
+                    </pre
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Usage Guidelines Section -->
+      <section class="section" id="usage">
+        <h2>Usage Guidelines</h2>
+        <p>
+          Best practices and implementation guidelines for using the design
+          system.
+        </p>
+
+        <h3>Getting Started</h3>
+        <ol>
+          <li>Import the design tokens CSS file or TypeScript constants</li>
+          <li>Use design tokens instead of hard-coded values</li>
+          <li>Follow component patterns for consistency</li>
+          <li>Test accessibility and responsiveness</li>
+        </ol>
+
+        <h3>Design Token Usage</h3>
+        <ul>
+          <li>
+            <strong>Colors:</strong> Always use semantic color tokens (primary,
+            success, error) rather than specific hue values
+          </li>
+          <li>
+            <strong>Spacing:</strong> Use the spacing scale for consistent
+            margins, padding, and gaps
+          </li>
+          <li>
+            <strong>Typography:</strong> Follow the type scale for headers, body
+            text, and UI elements
+          </li>
+          <li>
+            <strong>Shadows:</strong> Apply consistent elevation with predefined
+            shadow tokens
+          </li>
+        </ul>
+
+        <h3>Component Guidelines</h3>
+        <ul>
+          <li>
+            <strong>Buttons:</strong> Use primary for main actions, secondary
+            for alternative actions
+          </li>
+          <li>
+            <strong>Messages:</strong> Match message type to content severity
+            (info, success, warning, error)
+          </li>
+          <li>
+            <strong>Accessibility:</strong> Include proper ARIA labels and focus
+            states
+          </li>
+          <li>
+            <strong>Responsive:</strong> Test components at different screen
+            sizes
+          </li>
+        </ul>
+
+        <h3>File Structure</h3>
+        <div class="code-block">
+          <pre>
+design-handoff/
+├── tokens/
+│   ├── design-tokens.css
+│   ├── design-tokens.ts
+│   └── design-tokens.json
+├── components/
+│   ├── button.md
+│   └── system-message.md
+├── examples/
+│   ├── react/
+│   └── html-css/
+└── docs/
+    └── style-guide.html
+                </pre
+          >
+        </div>
+
+        <h3>Browser Support</h3>
+        <p>
+          This design system supports modern browsers with CSS custom
+          properties. For legacy browsers, consider using a PostCSS plugin to
+          transform custom properties.
+        </p>
+
+        <ul>
+          <li>Chrome 49+</li>
+          <li>Firefox 31+</li>
+          <li>Safari 9.1+</li>
+          <li>Edge 16+</li>
+        </ul>
+      </section>
+    </div>
+
+    <script>
+      // Navigation functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const navItems = document.querySelectorAll(".nav-item");
+        const sections = document.querySelectorAll(".section");
+
+        navItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const targetSection = this.dataset.section;
+
+            // Update navigation
+            navItems.forEach((nav) => nav.classList.remove("active"));
+            this.classList.add("active");
+
+            // Update sections
+            sections.forEach((section) => section.classList.remove("active"));
+            document.getElementById(targetSection).classList.add("active");
+          });
+        });
+
+        // Message dismiss functionality
+        document.addEventListener("click", function (e) {
+          if (e.target.classList.contains("message-dismiss")) {
+            e.target.closest(".message").style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

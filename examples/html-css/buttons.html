@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeStation Button Examples</title>
+    <link rel="stylesheet" href="../../tokens/design-tokens.css" />
+    <style>
+      body {
+        font-family: var(--font-family-primary);
+        margin: 0;
+        padding: 20px;
+        background-color: var(--color-background-default);
+        color: var(--color-text-default);
+      }
+
+      .examples-container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        margin-bottom: 2rem;
+      }
+
+      .section h2 {
+        color: var(--color-text-default);
+        margin-bottom: 1rem;
+        font-size: 24px;
+      }
+
+      .button-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-bottom: 2rem;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 12px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+      }
+
+      .loading-spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid transparent;
+        border-top: 2px solid currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .icon-restart {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+      }
+
+      /* Button Variants */
+      .btn-primary {
+        background-color: var(--color-success-green);
+        color: var(--color-base-white);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--color-success-green-divider);
+      }
+
+      .btn-secondary {
+        background-color: var(--color-grey-primary-bg);
+        color: var(--color-base-white);
+      }
+
+      .btn-secondary:hover {
+        background-color: #334155;
+      }
+
+      .btn-outline {
+        background-color: var(--color-grey-footer-light-bg);
+        color: var(--color-base-card-text);
+        border: var(--border-width-3) solid var(--color-base-card-text);
+      }
+
+      .btn-outline:hover {
+        background-color: #e0e0e0;
+      }
+
+      .btn-loading {
+        background-color: transparent;
+        color: var(--color-grey-tip-text);
+        border: var(--border-width-3) solid var(--color-grey-bg-aa18-3-4);
+        width: 199px;
+      }
+
+      .btn-small {
+        background-color: var(--color-info-blue);
+        color: var(--color-base-white);
+        font-size: var(--font-size-14);
+        padding: 8px 15px;
+        border-radius: var(--border-radius-5);
+      }
+
+      .btn-small:hover {
+        background-color: #004494;
+      }
+
+      /* Demo styles */
+      .demo-label {
+        font-size: var(--font-size-14);
+        color: var(--color-grey-tip-text);
+        margin-bottom: 8px;
+        font-weight: var(--font-weight-medium);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="examples-container">
+      <h1>LifeStation Button Component Examples</h1>
+
+      <div class="section">
+        <h2>Primary Actions</h2>
+        <div class="button-row">
+          <div>
+            <div class="demo-label">Primary Green</div>
+            <button class="button-base btn-primary">Submit (Enter)</button>
+          </div>
+          <div>
+            <div class="demo-label">Primary Small</div>
+            <button class="button-base btn-primary">Label</button>
+          </div>
+          <div>
+            <div class="demo-label">Primary Grey</div>
+            <button class="button-base btn-secondary">Continue</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Secondary Actions</h2>
+        <div class="button-row">
+          <div>
+            <div class="demo-label">Back Outline</div>
+            <button class="button-base btn-outline">Back</button>
+          </div>
+          <div>
+            <div class="demo-label">Cancel Outline</div>
+            <button class="button-base btn-outline">Cancel</button>
+          </div>
+          <div>
+            <div class="demo-label">Secondary</div>
+            <button class="button-base btn-outline">Label</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>State Variations</h2>
+        <div class="button-row">
+          <div>
+            <div class="demo-label">Disabled</div>
+            <button class="button-base button-disabled" disabled>
+              Continue
+            </button>
+          </div>
+          <div>
+            <div class="demo-label">Loading/Processing</div>
+            <button class="button-base btn-loading" disabled>
+              <div class="loading-spinner"></div>
+              Processing…
+            </button>
+          </div>
+          <div>
+            <div class="demo-label">Loading</div>
+            <button class="button-base btn-loading" disabled>
+              <div class="loading-spinner"></div>
+              Loading…
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Special Variants</h2>
+        <div class="button-row">
+          <div>
+            <div class="demo-label">With Icon</div>
+            <button class="button-base btn-secondary">
+              <svg class="icon-restart" viewBox="0 0 24 24">
+                <path
+                  d="M4 12a8 8 0 018-8V2.5L16 6l-4 3.5V8a6 6 0 100 12 6 6 0 006-6h2a8 8 0 01-16 0z"
+                />
+              </svg>
+              Retry
+            </button>
+          </div>
+          <div>
+            <div class="demo-label">All Details</div>
+            <button class="button-base btn-small">All details</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Interactive Demo</h2>
+        <div class="button-row">
+          <button
+            class="button-base btn-primary"
+            onclick="showAlert('Primary button clicked!')"
+          >
+            Click Me
+          </button>
+          <button
+            class="button-base btn-outline"
+            onclick="showAlert('Secondary button clicked!')"
+          >
+            Or Me
+          </button>
+          <button
+            class="button-base btn-loading"
+            onclick="simulateLoading(this)"
+          >
+            Simulate Loading
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Implementation Notes</h2>
+        <div
+          style="
+            background-color: var(--color-info-content-container-bg-lgt-blue);
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-info-blue);
+          "
+        >
+          <h3 style="margin-top: 0">CSS Classes Required:</h3>
+          <ul>
+            <li><code>.button-base</code> - Base button styles</li>
+            <li><code>.btn-primary</code> - Primary green button</li>
+            <li><code>.btn-secondary</code> - Primary grey button</li>
+            <li><code>.btn-outline</code> - Outline style buttons</li>
+            <li><code>.btn-loading</code> - Loading state styles</li>
+            <li><code>.btn-small</code> - Small variant button</li>
+            <li><code>.button-disabled</code> - Disabled state</li>
+          </ul>
+
+          <h3>Color Tokens Used:</h3>
+          <ul>
+            <li>
+              <code>--color-success-green</code> - Primary button background
+            </li>
+            <li>
+              <code>--color-grey-primary-bg</code> - Secondary button background
+            </li>
+            <li>
+              <code>--color-grey-footer-light-bg</code> - Outline button
+              background
+            </li>
+            <li>
+              <code>--color-base-white</code> - Button text on colored
+              backgrounds
+            </li>
+            <li>
+              <code>--color-base-card-text</code> - Button text on light
+              backgrounds
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showAlert(message) {
+        alert(message);
+      }
+
+      function simulateLoading(button) {
+        const originalText = button.innerHTML;
+        button.innerHTML = '<div class="loading-spinner"></div> Loading...';
+        button.disabled = true;
+
+        setTimeout(() => {
+          button.innerHTML = originalText;
+          button.disabled = false;
+          showAlert("Loading complete!");
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>
