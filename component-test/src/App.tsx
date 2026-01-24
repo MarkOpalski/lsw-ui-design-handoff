@@ -37,22 +37,20 @@ function App() {
               gridTemplateColumns: "repeat(auto-fit, 274px)",
             }}
           >
-            <ProductCardScanAvailable deviceId="EV00079" state="Okay" />
+            <ProductCardScanAvailable deviceId="EV00079" property1="Okay" />
+            <ProductCardScanAvailable deviceId="EV00083" property1="E1" />
+            <ProductCardScanAvailable deviceId="EV00087" property1="E2" />
+            <ProductCardScanAvailable deviceId="EV70001" property1="RMA" />
+            <ProductCardScanAvailable deviceId="EV00091" property1="Hold" />
+            <ProductCardScanAvailable deviceId="EV00094" property1="Warning" />
             <ProductCardScanAvailable
-              deviceId="EV00083"
-              state="E1"
-              errorCode="EV00083"
+              deviceId="EV00097"
+              property1="Processing"
             />
             <ProductCardScanAvailable
-              deviceId="EV00087"
-              state="E2"
-              errorCode="EV00087"
+              deviceId=""
+              property1="Grid Placeholder"
             />
-            <ProductCardScanAvailable deviceId="EV70001" state="RMA" />
-            <ProductCardScanAvailable deviceId="EV00091" state="Hold" />
-            <ProductCardScanAvailable deviceId="EV00094" state="Warning" />
-            <ProductCardScanAvailable deviceId="EV00097" state="Processing" />
-            <ProductCardScanAvailable deviceId="" state="Grid Placeholder" />
           </div>
         </section>
 
@@ -63,15 +61,15 @@ function App() {
             style={{ display: "flex", flexDirection: "column", gap: "16px" }}
           >
             <SystemMessage
-              type="warning"
+              property1="Warning"
               message="Please verify device condition before proceeding"
             />
             <SystemMessage
-              type="notice"
+              property1="IT Notice"
               message="System maintenance scheduled for tonight at 11 PM EST"
             />
             <SystemMessage
-              type="info"
+              property1="Tip and info icon"
               message="Tip: Use the barcode scanner to quickly input device IDs"
             />
           </div>
@@ -81,9 +79,9 @@ function App() {
         <section style={{ marginBottom: "40px" }}>
           <h2>Workspace Controls</h2>
           <WorkspaceControls
-            onRemoveScan={() => console.log("Remove scan clicked")}
+            onRemoveLastScan={() => console.log("Remove scan clicked")}
             onClearBatch={() => console.log("Clear batch clicked")}
-            onImeiEntry={(imei: string) => console.log("IMEI entered:", imei)}
+            onEnterImei={() => console.log("IMEI entry clicked")}
           />
         </section>
 
@@ -93,16 +91,8 @@ function App() {
           <div
             style={{ display: "flex", flexDirection: "column", gap: "20px" }}
           >
-            <Footer
-              variant="cancel-submit"
-              onCancel={() => console.log("Cancel clicked")}
-              onSubmit={() => console.log("Submit clicked")}
-            />
-            <Footer
-              variant="back-submit"
-              onBack={() => console.log("Back clicked")}
-              onSubmit={() => console.log("Submit clicked")}
-            />
+            <Footer property1="cancel-submit" />
+            <Footer property1="back-submit" />
           </div>
         </section>
       </main>
